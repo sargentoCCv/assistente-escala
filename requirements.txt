@@ -1,0 +1,7 @@
+Flask
+gunicorn
+spacy
+nltk
+scikit-learn
+openai
+python-dotenv
