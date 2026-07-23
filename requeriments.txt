@@ -1,0 +1,5 @@
+Flask
+gunicorn
+spacy
+nltk
+scikit-learn
