@@ -3,3 +3,10 @@ uvicorn
 python-dotenv
 openai
 httpx
+Flask
+gunicorn
+spacy
+nltk
+scikit-learn
+openai
+python-dotenv
