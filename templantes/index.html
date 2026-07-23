@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assistente de Escala</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>Assistente de Escala</h2>
+    <input type="text" id="msg">
+    <button onclick="enviar()">Enviar</button>
+    <div id="resposta"></div>
+<script>
+function enviar(){
+  fetch("/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({mensagem:document.getElementById("msg").value})})
+  .then(r=>r.json()).then(d=>{document.getElementById("resposta").innerText=d.resposta})
+}
+</script>
+</body>
+</html>
