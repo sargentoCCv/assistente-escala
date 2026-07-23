@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assistente de Escala</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial; background: #f0f0f0; padding: 20px; }
+        #chat { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        input { width: 80%; padding: 10px; }
+        button { padding: 10px; background: #4CAF50; color: white; border: none; }
+        #resposta { margin-top: 20px; white-space: pre-line; background: #e8e8e8; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div id="chat">
+        <h2>Assistente de Escala de Serviço</h2>
+        <input type="text" id="mensagem" placeholder="Digite sua mensagem...">
+        <button onclick="enviar()">Enviar</button>
+        <div id="resposta"></div>
+    </div>
+
+    <script>
+        function enviar() {
+            let msg = document.getElementById("mensagem").value;
+            fetch("/chat", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({mensagem: msg})
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("resposta").innerText = data.resposta;
+            });
+        }
+    </script>
+</body>
+</html>
